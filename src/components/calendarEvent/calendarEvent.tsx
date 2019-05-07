@@ -23,5 +23,4 @@ class CalendarEvent extends React.Component<IProps, IState> {
     }
 }
 
- 
 export default CalendarEvent;
