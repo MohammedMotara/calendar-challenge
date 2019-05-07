@@ -1,25 +1,57 @@
 import * as React from 'react';
 import styles from './calendarEventContainer.module.scss';
 import NavigationBar from '../components/navBar/navBar';
+import FilterSection from '../components/filterSection/filterSection';
+import CalendarEvent from '../components/calendarEvent/calendarEvent';
+import { connect } from 'react-redux';
+import { fetchCalendar, ICalendarEvents } from '../reducers/calendarReducer';
+import { IStore } from '../reducers/index';
 
-export interface IProps {
-    
+
+export interface IOwnProps {
+
 }
- 
+
+export interface IStateProps {
+    calendarEvents: ICalendarEvents[];
+    fetchCalendar: () => void
+}
+
 export interface IState {
-    
+    calendarEvents: ICalendarEvents[];
 }
  
-class CalendarEventContainer extends React.Component<IProps, IState> {
-    // state = { :  }
+class CalendarEventContainer extends React.Component<IOwnProps & IStateProps, IState> {
+    public state = { 
+        calendarEvents : [] }
     public render() { 
         return ( 
             <div>
                 <NavigationBar />
-                <section className={styles.eventContainer} />
+                <FilterSection />
+                <section className={styles.eventSection}>
+                    {this.state.calendarEvents.map((event, index) => (
+                        <CalendarEvent key ={index} event={event} />
+                    )) }
+                </section>
             </div>
          );
     }
+
 }
- 
-export default CalendarEventContainer;
+
+
+const mapStateToProps = (state:IStore, props?:IOwnProps) => {
+    return {
+        calendarEvents: state.calendar.calendarEvents,
+        ...props
+    }
+}
+
+
+const mapDispatchToProps = { fetchCalendar };
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps) 
+(CalendarEventContainer);

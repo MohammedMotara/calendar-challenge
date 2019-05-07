@@ -1,0 +1,19 @@
+@import '../../assets/variables.scss';
+
+.filterSection {
+    height: 200px;
+    width: 90%;
+    background-color: lightgray;
+    margin-top: 4vh;
+    margin-left: 5vw;
+
+    .allBooks {
+        height: 50px;
+        width: 150px;
+        border: red solid 2px;
+        
+        h1 {
+            padding: 10px;
+        }
+    }
+}
