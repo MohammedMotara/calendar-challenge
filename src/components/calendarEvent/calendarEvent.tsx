@@ -3,7 +3,7 @@ import styles from './calendarEvent.module.scss';
 import { ICalendarEvents } from '../../reducers/calendarReducer';
 
 export interface IProps {
-    event: ICalendarEvents[];
+    event: ICalendarEvents;
 }
  
 export interface IState {
@@ -13,15 +13,17 @@ export interface IState {
 class CalendarEvent extends React.Component<IProps, IState> {
     // state = { :  }
     public render() { 
+        // const { items } = this.props.event
         return ( 
             <article className={styles.event}>
-                <h1>Title:</h1>
-                <h2>Description - </h2>
-                <h2>Start Date and Time:</h2>
-                <h2>End Date and time: </h2>
+                <h1>Title:{this.props.event.items.id}</h1>
+                <h2>Description - {this.props.event.items.summary} </h2>
+                <h2>Start Date and Time:{this.props.event.items.start}</h2>
+                <h2>End Date and time: {this.props.event.items.end} </h2>
             </article>
          );
     }
 }
+
  
 export default CalendarEvent;

@@ -3,7 +3,7 @@ import { ThunkAction } from "redux-thunk";
 // ICalendarEvents interface
 export interface ICalendarEvents {
   kind: string;
-  items: ICalenderEvent[]
+  items: ICalenderEvent
 }
 
 export interface ICalenderEvent {

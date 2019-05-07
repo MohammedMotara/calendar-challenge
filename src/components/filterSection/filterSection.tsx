@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './filterSection.module.scss';
 import { connect } from 'react-redux';
-import { fetchCalendar, ICalendarEvents } from '../../reducers/calendarReducer';
+import { fetchCalendar } from '../../reducers/calendarReducer';
 import { IStore } from '../../reducers/index';
 
 export interface IProps {
@@ -23,7 +23,7 @@ class FilterSection extends React.Component<IOwnProps & IStateProps, IState> {
         return ( 
             <section className={styles.filterSection}>
                 <div className={styles.allBooks}>
-                    <h1 onClick={() => this.getBooks()}>All Books</h1>
+                    <h1 onClick={() => this.getBooks()}>All Events</h1>
                 </div>
             </section>
          );

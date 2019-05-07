@@ -8,9 +8,7 @@ import { fetchCalendar, ICalendarEvents } from '../reducers/calendarReducer';
 import { IStore } from '../reducers/index';
 
 
-export interface IOwnProps {
-
-}
+export interface IOwnProps {}
 
 export interface IStateProps {
     calendarEvents: ICalendarEvents[];
@@ -22,16 +20,27 @@ export interface IState {
 }
  
 class CalendarEventContainer extends React.Component<IOwnProps & IStateProps, IState> {
-    public state = { 
-        calendarEvents : [] }
+   public state = {
+       calendarEvents: []
+   }
+
+
+    public componentDidUpdate(prevProps: IStateProps & IOwnProps) {
+        if (prevProps !== this.props) {
+            this.setState({
+                calendarEvents: this.props.calendarEvents
+            })};
+    }
+
+
     public render() { 
         return ( 
             <div>
                 <NavigationBar />
                 <FilterSection />
                 <section className={styles.eventSection}>
-                    {this.state.calendarEvents.map((event, index) => (
-                        <CalendarEvent key ={index} event={event} />
+                    {this.props.calendarEvents.map((event, index) => (
+                        <CalendarEvent key={index} event={event} />
                     )) }
                 </section>
             </div>

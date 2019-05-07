@@ -5,15 +5,18 @@
     width: 90%;
     background-color: lightgray;
     margin-top: 4vh;
+    margin-right: 5vw;
     margin-left: 5vw;
+    box-shadow: $event-box-shadow;
 
     .allBooks {
         height: 50px;
-        width: 150px;
-        border: red solid 2px;
+        width: 100px;
         
         h1 {
             padding: 10px;
+            font-size: 15px;
+            border: red solid 2px;
         }
     }
 }
