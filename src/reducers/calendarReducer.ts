@@ -1,7 +1,28 @@
 import { ThunkAction } from "redux-thunk";
 
 // ICalendarEvents interface
-export interface ICalendarEvents {}
+export interface ICalendarEvents {
+  kind: string;
+  items: ICalenderEvent[]
+}
+
+export interface ICalenderEvent {
+  kind: string;
+  id: string;
+  status: string;
+  summary: string;
+  start: IStartDate;
+  end: IEndDate;
+}
+
+export interface IStartDate {
+  date: string;
+}
+
+export interface IEndDate {
+  date: string;
+}
+
 
 // action types
 export const FETCH_CALENDAR_EVENTS = "FETCH_CALENDAR_EVENTS";
