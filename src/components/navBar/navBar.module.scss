@@ -1,0 +1,14 @@
+@import '../../assets/variables.scss';
+
+.navigationBar {
+    background-color: $primary-color;
+    height: 80px;
+    width: 100%;
+    // border: red solid 2px;
+    .header {
+        color: white;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+
+}
