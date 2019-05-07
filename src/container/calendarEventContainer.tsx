@@ -8,7 +8,9 @@ import { fetchCalendar, ICalendarEvents } from '../reducers/calendarReducer';
 import { IStore } from '../reducers/index';
 
 
-export interface IOwnProps {}
+export interface IOwnProps {
+    
+}
 
 export interface IStateProps {
     calendarEvents: ICalendarEvents[];

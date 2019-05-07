@@ -11,9 +11,7 @@ export interface IState {
 }
  
 class CalendarEvent extends React.Component<IProps, IState> {
-    // state = { :  }
     public render() { 
-        // const { items } = this.props.event
         return ( 
             <article className={styles.event}>
                 <h1>Title:{this.props.event.items.id}</h1>
